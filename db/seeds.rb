@@ -18,3 +18,30 @@ Author.create([ {
   name: "ForgeCore"
 } ])
 p "Created #{Author.count} authors"
+
+
+Designs.destroy_all
+
+Design.create([ {
+  name: "Design 1",
+  author_id: 1,
+  folder: "folder1",
+  file_name: "file1.stl",
+  full_path: "folder1/file1.stl"
+}, {
+  name: "Design 2",
+  author_id: 2,
+  folder: "folder2",
+  file_name: "file2.stl",
+  full_path: "folder2/file2.stl"
+} ])
+p "Created #{Design.count} designs"
+
+Tags.destroy_all
+
+Tag.create([ {  name: "tag1" }, {  name: "tag2" }, {  name: "tag3" } ])
+p "Created #{Tag.count} tags"
+
+DesignsTags.destroy_all
+DesignsTags.create([ { design_id: 1, tag_id: 1 }, { design_id: 1, tag_id: 2 }, { design_id: 2, tag_id: 3 } ])
+p "Added #{DesignsTags.count} tags to the designs"
