@@ -20,6 +20,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_02_015627) do
   create_table "designs", force: :cascade do |t|
     t.string "name"
     t.string "folder"
+    t.string "file_name"
+    t.string "full_path"
     t.integer "author_id"
     t.integer "parent_id"
     t.datetime "created_at", null: false
