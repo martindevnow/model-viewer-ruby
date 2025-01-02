@@ -1,0 +1,8 @@
+<h1>Designs</h1>
+<ul>
+  <li>Dir: <%= @dir %></li>
+  <li>Env: <%= @my_env %></li>
+  <% @folders.each do |folder| %>
+    <li><%= link_to folder, @folder %></li>
+  <% end %>
+</ul>

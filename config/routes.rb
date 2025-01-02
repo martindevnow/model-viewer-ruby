@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  get "/models", to: "models#index"
-  resources :models do
+  get "/designs", to: "designs#index"
+  resources :designs do
     member do
-      get :folder, action: :folder
+      get :design, action: :folder
     end
   end
 end
