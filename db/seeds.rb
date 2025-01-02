@@ -20,7 +20,7 @@ Author.create([ {
 p "Created #{Author.count} authors"
 
 
-Designs.destroy_all
+Design.destroy_all
 
 Design.create([ {
   name: "Design 1",
@@ -37,7 +37,7 @@ Design.create([ {
 } ])
 p "Created #{Design.count} designs"
 
-Tags.destroy_all
+Tag.destroy_all
 
 Tag.create([ {  name: "tag1" }, {  name: "tag2" }, {  name: "tag3" } ])
 p "Created #{Tag.count} tags"
