@@ -7,3 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Author.destroy_all
+
+Author.create([ {
+  name: "Ben Martin"
+}, {
+  name: "CA3D"
+}, {
+  name: "ForgeCore"
+} ])
+p "Created #{Author.count} authors"

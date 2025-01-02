@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_02_010234) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_02_015627) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "designs", force: :cascade do |t|
+    t.string "name"
+    t.string "folder"
+    t.integer "author_id"
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_designs_on_author_id"
+    t.index ["parent_id"], name: "index_designs_on_parent_id"
+  end
+
+  create_table "designs_tags", id: false, force: :cascade do |t|
+    t.integer "design_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["design_id"], name: "index_designs_tags_on_design_id"
+    t.index ["tag_id"], name: "index_designs_tags_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "designs", "designs", column: "parent_id"
 end
