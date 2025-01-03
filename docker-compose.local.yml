@@ -3,11 +3,13 @@ version: "3.9"
 services:
   app:
     env_file:
-      - .env
-    image: jidoukaidanki/model-viewer-ruby:latest
+      - .env.local
+    build: .
     ports:
-      - "8888:3000"
+      - "8888:80"
     volumes:
+      - ./app:/rails/app
+      - ./config:/rails/config
       - ./models:/rails/models
       - ./public:/rails/public
       - ./storage:/rails/storage

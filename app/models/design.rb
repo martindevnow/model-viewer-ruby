@@ -1,8 +1,9 @@
 class Design < ApplicationRecord
-  belongs_to :author
+  belongs_to :author, optional: true
   belongs_to :parent,
     class_name: "Design",
-    inverse_of: :components
+    inverse_of: :components,
+    optional: true
 
   has_many :components,
     class_name: "Design",

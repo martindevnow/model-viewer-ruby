@@ -20,6 +20,9 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%- if @page_libs&.include?(:stl_viewer) %>
+      <script type="text/javascript" src="/javascript/libs/stl_viewer/stl_viewer.min.js"></script>
+    <% end -%>
   </head>
 
   <body>
