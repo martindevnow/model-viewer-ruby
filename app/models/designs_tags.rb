@@ -1,0 +1,2 @@
+class DesignsTags < ApplicationRecord
+end
