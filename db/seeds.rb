@@ -21,24 +21,48 @@ p "Created #{Author.count} authors"
 
 
 Design.destroy_all
-
 Design.create([ {
-  name: "Design 1",
-  author_id: 1,
-  folder: "folder1",
-  file_name: "file1.stl",
-  full_path: "folder1/file1.stl"
+  name: "Rukia",
+  author_id: 1
 }, {
-  name: "Design 2",
+  name: "Rukia - Bust",
+  author_id: 1,
+  parent_id: 1
+}, {
+  name: "Ichigo",
+  author_id: 2
+}, {
+  name: "Ichigo - Bust",
   author_id: 2,
-  folder: "folder2",
-  file_name: "file2.stl",
-  full_path: "folder2/file2.stl"
+  parent_id: 3
 } ])
 p "Created #{Design.count} designs"
 
-Tag.destroy_all
+Item.destroy_all
+Item.create([ {
+  name: "Rukia - 1/12 Scale",
+  description: "Rukia 1/12 Scale, Not Pre-supported",
+  directory: false,
+  item_name: "Rukia-1-12-Scale.stl",
+  relative_path: "CA3D/CA3D-Rukia/1-12-scale.stl",
+  design_id: 1
+}, {
+  name: "Rukia - 1/6 Scale",
+  description: "Rukia 1/6 Scale, Not Pre-supported",
+  directory: false,
+  item_name: "Rukia-1-6-scale.stl",
+  relative_path: "CA3D/CA3D-Rukia/1-6-scale.stl",
+  design_id: 1
+}, {
+  name: "Rukia - Bust",
+  description: "Rukia Bust, Not Pre-supported",
+  directory: false,
+  item_name: "Rukia-bust.stl",
+  relative_path: "CA3D/CA3D-Rukia/bust.stl",
+  design_id: 2
+} ])
 
+Tag.destroy_all
 Tag.create([ {  name: "tag1" }, {  name: "tag2" }, {  name: "tag3" } ])
 p "Created #{Tag.count} tags"
 

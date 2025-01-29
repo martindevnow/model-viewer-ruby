@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  directory: false
+  item_name: MyString
+  relative_path: MyString
+  design: one
+
+two:
+  name: MyString
+  description: MyString
+  directory: false
+  item_name: MyString
+  relative_path: MyString
+  design: two

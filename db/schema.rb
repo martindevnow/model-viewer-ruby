@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_02_015627) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_29_232949) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -19,9 +19,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_02_015627) do
 
   create_table "designs", force: :cascade do |t|
     t.string "name"
-    t.string "folder"
-    t.string "file_name"
-    t.string "full_path"
     t.integer "author_id"
     t.integer "parent_id"
     t.datetime "created_at", null: false
@@ -39,6 +36,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_02_015627) do
     t.index ["tag_id"], name: "index_designs_tags_on_tag_id"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.boolean "directory"
+    t.string "item_name"
+    t.string "test"
+    t.string "relative_path"
+    t.integer "design_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["design_id"], name: "index_items_on_design_id"
+    t.index ["relative_path"], name: "unique_relative_path", unique: true
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -46,4 +57,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_02_015627) do
   end
 
   add_foreign_key "designs", "designs", column: "parent_id"
+  add_foreign_key "items", "designs"
 end

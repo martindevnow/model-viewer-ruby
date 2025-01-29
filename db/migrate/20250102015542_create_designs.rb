@@ -3,10 +3,6 @@ class CreateDesigns < ActiveRecord::Migration[8.0]
     # Designs belong to an author
     create_table :designs do |t|
       t.string :name
-      t.string :folder
-      t.string :file_name
-      t.string :full_path
-
       t.belongs_to :author
       t.references :parent, index: true, foreign_key: { to_table: :designs }
 
